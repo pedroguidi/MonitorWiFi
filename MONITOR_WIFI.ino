@@ -8,7 +8,7 @@
 #define LED_SUCCESS 5  // LED 1 - Sucesso (D1)
 #define LED_FAIL 4     // LED 2 - Falha (D2)
 #define LED_SOFTAP 2   // LED 3 - Modo SoftAP (D4)
-#define RESET_BUTTON 0 // Pino do botão de reset (D3), configurado como PULL-UP
+#define RESET_BUTTON 0 // Pino do botão de limpa WiFi (D3), configurado como PULL-UP
 
 const char* host = "www.uol.com.br";
 ESP8266WebServer server(80);
