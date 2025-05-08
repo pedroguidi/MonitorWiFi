@@ -1,5 +1,5 @@
 # MonitorWiFi
-Monitora o WiFi que estiver configurado no dispositivo, possui um LED RGB para norificar o status da conexão com a Internet.
+Monitora o Internet WiFi que estiver configurado no dispositivo, possui um LED RGB para norificar o status da conexão com a Internet.
 
 Hardware utilizado:
 - ESP 8266 Mini
