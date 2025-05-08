@@ -1,6 +1,8 @@
 # MonitorWiFi ESP8266
 Monitora o Internet WiFi que estiver configurado no dispositivo, possui um LED RGB para norificar o status da conexão com a Internet.
 
+Compilado no ArduinoIDE 2.x
+
 Hardware utilizado:
 - ESP 8266 Mini
 - LED RGB
