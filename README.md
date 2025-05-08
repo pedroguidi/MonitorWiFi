@@ -11,8 +11,8 @@ Hardware utilizado:
 Configuração dos Pinos do ESP 8266:
 - Pino D1: Led de conexão bem sucedida (VERDE)
 - Pino D2: Led para alertar problema na conexão com a Internt (VERMELHO)
-- Pino D4: Led Acende para exibir que está no modo AP, para configuração do WiFi a monitorar.
-- Pino D3: Botão Limpa o WiFi monitorado e permitir que seja configurado um novo.
+- Pino D4: Led Acende para exibir que está no modo AP, para configuração do WiFi a monitorar. (AZUL)
+- Pino D3: Botão apaga o WiFi monitorado e permitir que seja configurado um novo. 
 
 Funcionamento:
 A primeira vez que for ligado ou após pressionado o botão Limpa WiFi, acessa o dispositivo pelo SSID MonWiFi_Config e senha 12345678.
