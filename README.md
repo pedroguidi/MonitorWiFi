@@ -4,7 +4,7 @@ Monitora o Internet WiFi que estiver configurado no dispositivo, possui um LED R
 Compilado no ArduinoIDE 2.x
 
 Hardware utilizado:
-- ESP 8266 Mini
+- ESP 8266 D1 Mini
 - LED RGB
 - Resistores
 
