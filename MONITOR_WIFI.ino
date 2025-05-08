@@ -8,7 +8,7 @@
 #define LED_SUCCESS 5  // LED 1 - Sucesso (D1)
 #define LED_FAIL 4     // LED 2 - Falha (D2)
 #define LED_SOFTAP 2   // LED 3 - Modo SoftAP (D4)
-#define RESET_BUTTON 0 // Pino do botão de limpa WiFi (D3), configurado como PULL-UP
+#define RESET_BUTTON 0 // Pino do botão de reset (D3), configurado como PULL-UP
 
 const char* host = "www.uol.com.br";
 ESP8266WebServer server(80);
@@ -54,19 +54,104 @@ void clearWiFiConfig() {
   strcpy(wifiConfig.password, "");
   EEPROM.put(0, wifiConfig);
   EEPROM.commit();
-  Serial.println("Configuração WiFi apagada. Reinicie o dispositivo.");
 }
 
 
 void setupHotspot() {
   WiFi.softAP("MonWiFi_Config", "12345678");
   server.on("/", HTTP_GET, []() {
-    server.send(200, "text/html", "<form action='/save' method='POST'>SSID: <input name='ssid'><br>Senha: <input name='password'><br><input type='submit'></form>");
+   server.send(200, "text/html", R"rawliteral(
+                    <html>
+                    <head>
+                      <meta name='viewport' content='width=device-width, initial-scale=1'>
+                      <style>
+                        body {
+                          font-family: Arial, sans-serif;
+                          padding: 20px;
+                          background-color: #f2f2f2;
+                        }
+                        form {
+                          max-width: 300px;
+                          margin: auto;
+                          background: white;
+                          padding: 15px;
+                          border-radius: 10px;
+                          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                        }
+                        h2 {
+                          text-align: center;
+                          color: #333;
+                        }
+                        input[type='text'], input[type='password'] {
+                          width: 100%;
+                          padding: 10px;
+                          margin: 6px 0 12px;
+                          border: 1px solid #ccc;
+                          border-radius: 5px;
+                        }
+                        input[type='submit'] {
+                          width: 100%;
+                          padding: 10px;
+                          background-color: #4CAF50;
+                          color: white;
+                          border: none;
+                          border-radius: 5px;
+                          cursor: pointer;
+                        }
+                        input[type='submit']:hover {
+                          background-color: #45a049;
+                        }
+                      </style>
+                    </head>
+                    <body>
+                      <h2>Monitor de WiFi</h2>
+                      <h2>Registre o nome do Wi-Fi</h2>
+                      <form action='/save' method='POST'>
+                        <label>SSID:</label>
+                        <input type='text' name='ssid'><br>
+                        <label>Senha:</label>
+                        <input type='password' name='password'><br>
+                        <input type='submit' value='Conectar'>
+                      </form>
+                    </body>
+                    </html>
+                  )rawliteral");
+
   });
   server.on("/save", HTTP_POST, []() {
     if (server.hasArg("ssid") && server.hasArg("password")) {
       saveWiFiConfig(server.arg("ssid").c_str(), server.arg("password").c_str());
-      server.send(200, "text/html", "Configuração salva! Reiniciando o dispositivo.");
+      server.send(200, "text/html", R"rawliteral(
+                      <html>
+                      <head>
+                        <meta name='viewport' content='width=device-width, initial-scale=1'>
+                        <style>
+                          body {
+                            font-family: Arial, sans-serif;
+                            background-color: #f2f2f2;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                          }
+                          .message-box {
+                            background-color: white;
+                            padding: 20px 30px;
+                            border-radius: 10px;
+                            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                            text-align: center;
+                          }
+                        </style>
+                      </head>
+                      <body>
+                        <div class="message-box">
+                          <h2>Registrado!</h2>
+                          <p>Reiniciando o dispositivo...</p>
+                        </div>
+                      </body>
+                      </html>
+                    )rawliteral");
       delay(3000);
       ESP.restart();
     }
