@@ -19,3 +19,9 @@ A primeira vez que for ligado ou após pressionado o botão Limpa WiFi, acessa o
 Após conectado entre no endereço: http://192.168.4.1
 Informe os dados do WiFi que será monitorado e salve a configuração.
 Aguarde o reboot e o início do monitoramento.
+
+Circuito desenhado em: https://app.cirkitdesigner.com/
+
+Diagrama esquemático:
+
+
