@@ -1,5 +1,5 @@
 # MonitorWiFi ESP8266
-Monitora o Internet WiFi que estiver configurado no dispositivo, possui um LED RGB para norificar o status da conexão com a Internet.
+Monitora a Internet WiFi que estiver configurado no dispositivo, possui um LED RGB para norificar o status da conexão com a Internet.
 
 Compilado no ArduinoIDE 2.x
 
@@ -20,7 +20,7 @@ Após conectado entre no endereço: http://192.168.4.1
 Informe os dados do WiFi que será monitorado e salve a configuração.
 Aguarde o reboot e o início do monitoramento.
 
-Circuito desenhado em: https://app.cirkitdesigner.com/
+Diagrama esquemático em: https://app.cirkitdesigner.com/project/ff460f93-f23a-4785-b744-997da97d6a5c
 
 Diagrama esquemático:
 
