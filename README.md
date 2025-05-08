@@ -28,3 +28,6 @@ Diagrama esquemático:
 
 **![image](https://github.com/user-attachments/assets/b5a0b02e-8980-4c0c-8fa3-6fdbd0ad8efe)
 **
+
+
+![image](https://github.com/user-attachments/assets/abf4d2ce-adaa-4f29-bec5-5d21204a7d9f)
