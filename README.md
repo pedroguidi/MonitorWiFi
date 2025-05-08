@@ -25,3 +25,5 @@ Circuito desenhado em: https://app.cirkitdesigner.com/
 Diagrama esquemático:
 
 
+**![image](https://github.com/user-attachments/assets/b5a0b02e-8980-4c0c-8fa3-6fdbd0ad8efe)
+**
